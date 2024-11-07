@@ -40,6 +40,31 @@ ingress:
           pathType: ImplementationSpecific
   tls: []
 
+configmap:
+  mockserver:
+    properties: |     
+      mockserver.initializationJsonPath=/config/initializerJson.json
+  initializerJson: |
+    [
+      {
+        "httpRequest": {
+          "path": "/firstExampleExpectation"
+        },
+        "httpResponse": {
+          "body": "some response"
+        }
+      },
+      {
+        "httpRequest": {
+          "path": "/secondExampleExpectation"
+        },
+        "httpResponse": {
+          "body": "some response"
+        }
+      }
+    ]
+
+
 podAnnotations: {}
 
 resources: {}

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mockserver-config
+  namespace: {{ .Release.Namespace }}
+data:
+  mockserver.properties: | {{ .Values.configmap.mockserver.properties | nindent 4 }}
+  initializerJson.json: | {{ .Values.configmap.initializerJson | nindent 4 }}
