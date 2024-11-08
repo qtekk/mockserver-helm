@@ -48,7 +48,7 @@ configmap:
     [
       {
         "httpRequest": {
-          "path": "/mockserver/foor"
+          "path": "/mockserver/foo"
         },
         "httpResponse": {
           "body": "Hello..."
