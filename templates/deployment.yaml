@@ -15,9 +15,10 @@ spec:
       release: {{ .Release.Name }}
   template:
     metadata:
-{{- if .Values.podAnnotations }}
       # Allows custom annotations to be specified
       annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+{{- if .Values.podAnnotations }}
 {{ toYaml .Values.podAnnotations | indent 8 }}
 {{- end }}
       name: {{ template "release.name" . }}
