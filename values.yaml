@@ -36,7 +36,7 @@ ingress:
   hosts:
     - host: mockserver.local
       paths:
-        - path: /
+        - path: /mockserver/
           pathType: ImplementationSpecific
   tls: []
 
@@ -48,18 +48,18 @@ configmap:
     [
       {
         "httpRequest": {
-          "path": "/firstExampleExpectation"
+          "path": "/mockserver/foor"
         },
         "httpResponse": {
-          "body": "some response"
+          "body": "Hello..."
         }
       },
       {
         "httpRequest": {
-          "path": "/secondExampleExpectation"
+          "path": "/mockserver/bar"
         },
         "httpResponse": {
-          "body": "some response"
+          "body": "...world"
         }
       }
     ]
